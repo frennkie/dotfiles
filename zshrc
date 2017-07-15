@@ -30,7 +30,8 @@ genpasswd() {
 }
 
 genpassphrase() {
-    echo $(grep "^[^']\{3,5\}$" /usr/share/dict/words|shuf -n5)
+    # echo $(grep "^[^']\{3,5\}$" /usr/share/dict/words|shuf -n5)
+    echo $(grep "^[^']\{1,10\}$" all.dic|shuf -n4)
 }
 
 dpkgclean() {
