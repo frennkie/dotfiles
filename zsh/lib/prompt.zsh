@@ -10,7 +10,7 @@ autoload -U promptinit
 promptinit
 
 precmd () { vcs_info }
-PROMPT='[%D{%K:%M:%S} - %{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(hostname -f)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%} $(git_super_status)]
+PROMPT='[%D{%Y-%m-%d %K:%M:%S} - %{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(hostname -f)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%} $(git_super_status)]
 $: '
 
 TRAPALRM() {
