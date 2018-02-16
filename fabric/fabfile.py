@@ -2,6 +2,9 @@
 from __future__ import unicode_literals
 from __future__ import print_function
 
+# additional clean up after upgrade
+# dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
+
 # python fabric file (apt-get install fabric || pip install fabric)
 # Fabfile to:
 #  - get df (disc free)
