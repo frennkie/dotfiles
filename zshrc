@@ -29,6 +29,15 @@ genpasswd() {
     openssl rand -base64 32
 }
 
+genpassphrase() {
+    # echo $(grep "^[^']\{3,5\}$" /usr/share/dict/words|shuf -n5)
+    echo $(grep "^[^']\{1,10\}$" all.dic|shuf -n4)
+}
+
+dpkgclean() {
+    dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
+}
+
 # avoid most common annoying correction:
 alias sudo='nocorrect sudo'
 
