@@ -20,7 +20,8 @@ from fabric.api import *
 env.roledefs = {
     'self': ['localhost'],
     #'prod': ['dom0', 'dom1', 'dom5', 'dom1v2', 'dr-backup'],
-    'prod': ['dom0', 'dom1', 'dom5', 'dom1v2'],
+    #'prod': ['dom0', 'dom1', 'dom5', 'dom1v2'],
+    'prod': ['dom0', 'dom5', 'dom1v2'],
     'dev': ['user@dev.example.com'],
     'staging': ['user@staging.example.com'],
     'production': ['user@production.example.com']
