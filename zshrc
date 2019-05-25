@@ -41,5 +41,10 @@ dpkgclean() {
 # avoid most common annoying correction:
 alias sudo='nocorrect sudo'
 
+# golang stuff
+export GOPATH="$HOME/work/go" # add GOPATH (golang)
+export GOBIN="$GOPATH/bin"    # add GOBIN (binary)
+export PATH="$PATH:$GOPATH"   # add GOPATH to PATH
+
 export PATH="$PATH:$HOME/local/bin/" # add tmux dir
 alias tmux="TERM=xterm-256color $HOME/local/bin/tmux"
