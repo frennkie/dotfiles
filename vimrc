@@ -25,8 +25,8 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
@@ -42,21 +42,46 @@ filetype plugin indent on
 syntax on
 
 " Showing line numbers and length
-set number  " show line numbers
-set tw=79   " width of document (used by gd)
+" set number  " show line numbers
+set relativenumber  " show relative line numbers
+" set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
-" line numbers
-" https://github.com/myusuf3/numbers.vim
-nnoremap <F3> :NumbersToggle<CR>
-nnoremap <F4> :NumbersOnOff<CR>
+
+function! NumberToggle()
+  if(&relativenumber == 0)
+    if(&number == 0)
+        set number
+    else
+        set relativenumber
+    endif
+  else
+    set norelativenumber
+    set number
+  endif
+endfunc
+
+function! NumberOff()
+  if(&relativenumber == 1)
+    set norelativenumber
+  endif
+  if(&number == 1)
+    set nonumber
+  endif
+endfunc
+
+nnoremap <F3> :call NumberToggle()<cr>
+nnoremap <F4> :call NumberOff()<cr>
 
 " Useful settings
 set history=700
 set undolevels=700
+
+" limit git commit messages to 72 char per line
+"utocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Real programmers don't use TABs but spaces
 set tabstop=4
@@ -81,5 +106,19 @@ set noswapfile
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-call pathogen#infect()
+"call pathogen#infect()
+
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
 

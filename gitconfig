@@ -1,0 +1,23 @@
+[user]
+	name = Robert Habermann
+	email = mail@rhab.de
+[push]
+	default = matching
+	followTags = true
+[mergetool "vimdiff"]
+	keepBackup = false
+[mergetool]
+	keepBackup = false
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD^
+	undo = reset --soft HEAD^
+	last = log -1 HEAD
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	hist22 = log -22 --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short

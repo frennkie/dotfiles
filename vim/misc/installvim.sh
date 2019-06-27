@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-hg clone https://vim.googlecode.com/hg/ $HOME/vim
+git clone https://github.com/vim/vim.git $HOME/vim
 cd $HOME/vim/src
 ./configure --enable-pythoninterp --with-features=huge -prefix=$HOME/opt/vim
 make
