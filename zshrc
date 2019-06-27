@@ -18,3 +18,5 @@ precmd() { print "" }
 
 export TERM='xterm-256color'
 
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
