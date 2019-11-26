@@ -14,8 +14,12 @@
 [alias]
 	co = checkout
 	br = branch
+	brc = rev-parse --abbrev-ref HEAD
 	ci = commit
 	st = status
+	mbom = !git merge-base `git rev-parse --abbrev-ref HEAD` origin/master
+	mbum = !git merge-base `git rev-parse --abbrev-ref HEAD` upstream/master
+	rbi = rebase -i
 	unstage = reset HEAD^
 	undo = reset --soft HEAD^
 	last = log -1 HEAD

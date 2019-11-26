@@ -50,5 +50,16 @@ export GOPATH="$HOME/work/go" # add GOPATH (golang)
 export GOBIN="$GOPATH/bin"    # add GOBIN (binary)
 export PATH="$PATH:$GOPATH"   # add GOPATH to PATH
 
-export PATH="$PATH:$HOME/local/bin/" # add tmux dir
+export PATH="$PATH:$HOME/local/bin/"  # add tmux dir
 alias tmux="TERM=xterm-256color $HOME/local/bin/tmux"
+
+export GOPATH="$HOME/work/go" # add GOPATH (golang)
+export GOBIN="$GOPATH/bin" # add GOBIN (binary)
+export PATH="$PATH:$GOBIN"  # add go bin dir
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/tmp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/tmp/google-cloud-sdk/completion.zsh.inc'; fi
