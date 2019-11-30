@@ -297,3 +297,6 @@ set -g mouse on
 
 # re-set/update environment - useful for SSH agent
 bind-key s send-keys "eval $(tmux show-environment -s)" Enter
+
+# default shell
+set-option -g default-shell /bin/zsh
